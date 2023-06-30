@@ -1,0 +1,21 @@
+
+.div{
+    /*background-image: url('../imagenfondo.jpeg');*/
+}
+.nombre{
+    font-size: 40px;
+    background-color: black;
+    color: rgb(39, 235, 39);
+    border-color: blueviolet;
+}
+
+.otra{
+    color: rgb(68, 136, 214);
+}
+
+.image{
+    border-color: black;
+    /*border-radius: 35px;*/
+    /*border: 2px black;
+    padding: 0px  ;*/
+};

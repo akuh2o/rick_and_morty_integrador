@@ -1,0 +1,14 @@
+
+.barra{
+   display: flex;
+   align-items: center;
+   background-color: yellowgreen ;
+   border-radius: 1px;
+   height: 4em;   
+   justify-content: flex-end;
+}
+.App {
+   margin-top: 1em;
+   text-align: center;
+   background-image: url('./components/imagenfondo.jpeg');
+}

@@ -1,0 +1,12 @@
+.prueba{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 100%;
+    background-color: #2f1d58;
+    height: fit-content;
+    overflow: auto;
+    flex-direction: row;
+}

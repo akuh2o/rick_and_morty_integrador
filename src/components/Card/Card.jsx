@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addFav, removeFav } from "../../redux/actions/actions";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+//prueba
 
 //se borra el export default porque usamos connect
 /*export default*/  function Card({id, name, status, species, gender, origin,image, onClose, addFav, removeFav, myFavorites, allCaracters}) {

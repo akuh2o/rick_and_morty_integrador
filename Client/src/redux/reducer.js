@@ -26,6 +26,14 @@ function reducer (state = initialState,action){
                 ...state,
                 myFavorites: filterGender,
             }
+        case "ORDER":
+            let copy3 = [...state.allCaracters];
+            return {
+                ...state,
+                myFavorites: copy3.sort((a,b)=>{
+                    return payload === "A"? a.id - b.id :  b.id - a.id
+                })
+            }
         default:
             return {...state};
     }

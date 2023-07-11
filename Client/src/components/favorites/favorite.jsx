@@ -53,7 +53,7 @@ function Favorites(){
     )
 }
 
-// chequear porque cambiamos el connect por use selector
+// chequear porque cambiamos el connect por useSelector
 function mapStateToProps(state){
     return{
         myFavorites: state.myFavorites

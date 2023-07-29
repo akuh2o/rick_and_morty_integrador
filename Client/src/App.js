@@ -19,23 +19,45 @@ function App() {
    {/*esto esta en la HW de forms*/}
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   const EMAIL = 'ejemplo@gmail.com';
-   const PASSWORD = 'pass123';
-   function login(userData) {
-      if (userData.email === EMAIL && userData.password === PASSWORD) {
+   //const EMAIL = 'ejemplo@gmail.com';
+   //const PASSWORD = 'pass123';
+
+   const URL = 'http://localhost:3001/rickandmorty/'
+   async function login({email,password}){//(userData) {
+      /*if (userData.email === EMAIL && userData.password === PASSWORD) {
          setAccess(true);
          navigate('/home');
+      }*/
+      try{
+      const {data} = await axios(`${URL}login?email=${email}&password=${password}`) // aca los datos quedan expuestos cuando los ponemos en la URL
+      const {access} = data
+      setAccess(access)
+      access && navigate('/home')
+      } catch (error){
+         alert('Usuario y/o contraseña incorrecta') // hizo unos cambios en el login.js y despues aca, para manejar los mensajes
       }
+      /*.then(({data})=>{
+         const {access}=data;
+         setAccess(access)
+         access && navigate('/home')
+      })*/
    }
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
    {/*hasta aca esta en la HW*/}
 
-   const onSearch = (id) =>{
+   const onSearch = async (id) =>{
       //setCharacters([...characters, example]);
-      axios (`https://rickandmortyapi.com/api/character/${id}`)
-      .then(({data})=>{
+      try {
+         const {data} = await axios(`${URL}/character/${id}`)
+         setCharacters(oldchars => [...oldchars, data])
+      } catch (error) {
+         alert(error.response.data);       
+
+      }
+      //axios (`http://localhost:3001/rickandmorty/character/${id}`) /*`https://rickandmortyapi.com/api/character/${id}`//en un principio sacabamos de aca la info*/
+      /*.then(({data})=>{
          if(!characters.find(char => char.id === data.id)){
             if(data.name){
                setCharacters((oldChars)=>[...oldChars,data])
@@ -43,7 +65,7 @@ function App() {
                alert (`ya existe el personaje ${id}`)
             }
          }
-      }).catch(err=> alert(err.response.data.error))
+      }).catch(err=> alert(err.response.data.error))*/
    }
 
    function onClose(id){
